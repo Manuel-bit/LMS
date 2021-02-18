@@ -47,47 +47,24 @@
         <div id="sidebar-wrapper">
             <a class="navbar-brand with-text" title="PSD to HTML" href="index.html">EduPress.</a>
             <ul class="sidebar-nav">
-                <li><a href="member-profile.html">My Profile <span><i class="fa fa-user"></i></span></a></li>
-                <li><a href="member-courses.html">My Courses <span><i class="fa fa-briefcase"></i></span></a></li>
-                <li><a href="member-achievements.html">My Achievements <span><i class="fa fa-trophy"></i></span></a></li>
-                <li><a href="member-messages.html">My Messages <span><i class="fa fa-comment-o"></i></span></a></li>
-                <li><a href="member-friends.html">My Friends <span><i class="fa fa-share-alt"></i></span></a></li>
-                <li><a href="member-profile-edit.html">Edit Profile <span><i class="fa fa-edit"></i></span></a></li>
-                <li><a href="member-login.html">Login Account <span><i class="fa fa-key"></i></span></a></li>
-                <li class="active"><a href="member-register.html">Register New Account <span><i class="fa fa-lock"></i></span></a></li>
-                <li><a href="forum.html">Visit Forum Topics <span><i class="fa fa-comments-o"></i></span></a></li>
-                <li><a href="index.html">Back to EduPress</a></li>
+                <li><a href="{% url 'studentProfile' %}">My Profile <span><i class="fa fa-user"></i></span></a></li>
+                <li><a href="#">My Courses <span><i class="fa fa-briefcase"></i></span></a></li>
+                <li><a href="#">My Achievements <span><i class="fa fa-trophy"></i></span></a></li>
+                <li><a href="#">My Messages <span><i class="fa fa-comment-o"></i></span></a></li>
+                <li><a href="#">My Friends <span><i class="fa fa-share-alt"></i></span></a></li>
+                <li><a href="#">Edit Profile <span><i class="fa fa-edit"></i></span></a></li>
+                {% if user.is_authenticated %}
+                <li><a href="{% url 'logout' %}">Log Out <span><i class="fa fa-key"></i></span></a></li>
+                {% else %}
+                <li><a href="{% url 'login' %}">Login Account <span><i class="fa fa-key"></i></span></a></li>
+                <li class="active"><a href="{% url 'studentRegister' %}">Register New Account <span><i class="fa fa-lock"></i></span></a></li>
+                {% endif %}
+                <li><a href="{% url 'home' %}">Back to EduPress</a></li>
             </ul>
         </div>
 
         <div id="page-content-wrapper">
             <a href="#menu-toggle" class="menuopener" id="menu-toggle"><i class="fa fa-bars"></i></a>
-            <div class="demo-parallax parallax section looking-photo nopadbot" data-stellar-background-ratio="0.5" style="background-image:url('../static/upload/demo_02.jpg');">
-                <div class="page-title section nobg">
-                    <div class="container-fluid">
-                        <div class="clearfix">
-                            <div class="title-area pull-left">
-                                <h2>Create Account <small>Please complete all fields for perfect profile..</small></h2>
-                            </div>
-                            <!-- /.pull-right -->
-                            <div class="pull-right hidden-xs">
-                                <div class="bread">
-                                    <ol class="breadcrumb">
-                                        <li><a href="#">Home</a></li>
-                                        <li><a href="#">Members</a></li>
-                                        <li class="active">Register</li>
-                                    </ol>
-                                </div>
-                                <!-- end bread -->
-                            </div>
-                            <!-- /.pull-right -->
-                        </div>
-                        <!-- end clearfix -->
-                    </div>
-                </div>
-                <!-- end page-title -->
-            </div>
-
             {% block content %}
             
             {% endblock %}
