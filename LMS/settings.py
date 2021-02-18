@@ -29,6 +29,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'Home.apps.HomeConfig',
     'Profiles.apps.ProfilesConfig',
+    'crispy_forms',
+    "bootstrap4",
     
 ]
 
@@ -118,3 +120,6 @@ STATICFILES_DIRS = [
 
 MEDIA_ROOT  = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+
+LOGIN_REDIRECT_URL = "home"
+LOGIN_URL = 'login'
