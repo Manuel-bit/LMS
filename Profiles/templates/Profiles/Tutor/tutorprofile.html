@@ -1,0 +1,132 @@
+{% extends 'Profiles/base.html' %}
+{% block content %}
+    <div class="demo-parallax parallax section looking-photo nopadbot" data-stellar-background-ratio="0.5" style="background-image:url('/static/upload/demo_01.jpg');">
+        <div class="page-title section nobg">
+            <div class="container-fluid">
+                <div class="clearfix">
+                    <div class="title-area pull-left">
+                        <h2>{{user.username}} <small>Hello there, this is my profile.</small></h2>
+                    </div>
+                    <!-- /.pull-right -->
+                    <div class="pull-right hidden-xs">
+                        <div class="bread">
+                            <ol class="breadcrumb">
+                                <li><a href="#">Home</a></li>
+                                <li><a href="#">Members</a></li>
+                                <li class="active">My Account</li>
+                            </ol>
+                        </div>
+                        <!-- end bread -->
+                    </div>
+                    <!-- /.pull-right -->
+                </div>
+                <!-- end clearfix -->
+            </div>
+        </div>
+        <!-- end page-title -->
+    </div>
+    <div class="section">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-10 col-sm-12">
+                    <div class="about-widget clearfix">
+                        <div class="widget-title">
+                            <h3>About Me</h3>
+                            <hr>
+                        </div><!-- end title -->
+                        <div class="row">
+                            <div class="col-md-3 col-sm-12">
+                                <div class="team-member-img text-center">
+                                    <img src="{{user.tutor.image.url}}" alt="team member img" class="img-responsive">
+                                    <br>
+                                    <!-- <a href="#" class="btn btn-default btn-sm">Follow me</a> -->
+                                </div>
+                            </div><!-- end col -->
+
+                            <div class="col-md-9 col-sm-12">
+                                <div class="team-member-name">
+                                    {% if user.tutor.full_name %}
+                                        <p>{{user.tutor.full_name}}</p>
+                                    {% else %}
+                                    <p>{{user.username}}</p>
+                                    {% endif %}
+                                    <span>Tutor</span>
+                                </div>
+
+                                <p>Howdy, welcome to the my profile, we build professional responsive and retina ready template for online learning websites! With our professional course pages, you can earn money from your online courses. Join us today! Create and share outstanding quiz's, ask questions and get answer from your awesome clients!</p>
+
+                                <p>Lorem Ipsum has been the industry's standard dummy text ever since the, when an unknown printer took Lorem Ipsum has been the industry's standard dummy text ever since the, when an unknown printer took. With our professional course pages..</p>
+
+                                <hr class="invis">
+
+                                <div class="widget-title">
+                                    <h3>My Achievements</h3>
+                                    <hr>
+                                </div><!-- end title -->
+
+                                <ul class="customlist">
+                                    <li><img src="../statict/images/icons/award_01.png" alt="" class="img-responsive"></li>
+                                    <li><img src="../statict/images/icons/award_02.png" alt="" class="img-responsive"></li>
+                                    <li><img src="../statict/images/icons/award_03.png" alt="" class="img-responsive"></li>
+                                    <li><img src="../statict/images/icons/award_04.png" alt="" class="img-responsive"></li>
+                                    <li><img src="../statict/images/icons/award_05.png" alt="" class="img-responsive"></li>
+                                    <li><img src="../statict/images/icons/award_06.png" alt="" class="img-responsive"></li>
+                                    <li><img src="../statict/images/icons/award_07.png" alt="" class="img-responsive"></li>
+                                    <li><img src="../statict/images/icons/award_08.png" alt="" class="img-responsive"></li>
+                                    <li><img src="../statict/images/icons/award_09.png" alt="" class="img-responsive"></li>
+                                </ul>
+
+                            </div><!-- end col -->
+                        </div><!-- end row -->      
+                    </div><!-- end widget -->
+                </div><!-- end col -->
+            </div><!-- end row -->
+        </div><!-- end container -->
+    </div><!-- end section -->
+    <div class="section lb">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="clearfix">
+                        <div class="widget-title">
+                            <h3>Active Courses</h3>
+                            <hr>
+                        </div><!-- end title -->
+                        <div class="row">
+                            <div class="col-lg-5 col-md-5">
+                                <div class="video-wrapper clearfix">
+                                    <div class="post-media">
+                                        <div class="entry">
+                                            <img src="../static/upload/blog_01.jpg" alt="" class="img-responsive">
+                                            <div class="magnifier">
+                                                <div class="magni-desc">
+                                                    <a class="secondicon" href="course-single.html"> <span class="oi" data-glyph="link-intact" title="Read More" aria-hidden="false"></span></a>
+                                                </div><!-- end team-desc -->
+                                            </div><!-- end magnifier -->
+                                        </div>
+                                    </div><!-- end media -->
+                                </div><!--widget -->
+                            </div><!-- end col -->
+                            <div class="col-lg-7 col-md-7">
+                                <div class="video-wrapper">
+                                    <div class="widget-title clearfix">
+                                        <h3><a href="course-single.html">Learn English in 20 Days</a></h3>
+                                        <div class="rating">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                        </div>
+                                        <small><a href="#">View Course</a>  -  Expires : 22 June 2016</small>
+                                    </div><!-- end title -->
+                                </div><!-- end video-wrapper -->
+                            </div>
+                        </div><!-- end row -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

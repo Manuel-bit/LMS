@@ -40,12 +40,12 @@
     IMPORT FILES
 ******************************************/
 
-@import url(css/font-awesome.min.css);
-@import url(css/open-iconic.min.css);
-@import url(css/animate.css);
-@import url(css/carousel.css);
-@import url(css/bbpress.css);
-@import url(css/build/mediaelementplayer.min.css);
+@import url(font-awesome.min.css);
+@import url(open-iconic.min.css);
+@import url(animate.css);
+@import url(carousel.css);
+@import url(bbpress.css);
+@import url(build/mediaelementplayer.min.css);
 
 /******************************************
     STARTUP

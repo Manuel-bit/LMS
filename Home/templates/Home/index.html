@@ -223,7 +223,11 @@
                                         </li>
                                     </ul>
                                 </li>
-                                <li class="btn btn-default"><a title="Join for free" href="member-register.html">Join us</a></li>
+                                {% if user.is_authenticated %}
+                                    <li><a href="{% url 'studentProfile' %}">{{user.username}}</a></li>
+                                {% else %}
+                                <li class="btn btn-default"><a title="Join for free" href="{% url 'studentRegister' %}">Join us</a></li>
+                                {% endif %}
                             </ul>
                             <!-- end dropdown -->
                         </div>
