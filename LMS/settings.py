@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'Home.apps.HomeConfig',
     'Profiles.apps.ProfilesConfig',
+    'Subscription.apps.SubscriptionConfig',
     'crispy_forms',
     "bootstrap4",
     
