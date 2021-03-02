@@ -8,3 +8,15 @@ class CreateUserForm(UserCreationForm):
     class Meta:
         model = User
         fields = ['username', 'email','password1', 'password2']
+
+class UserUpdateForm(forms.ModelForm):
+    email = forms.EmailField()
+
+    class Meta:
+        model = User
+        fields = ['username', 'email']
+
+class StudentUpdateForm(forms.ModelForm):
+    class Meta:
+        model = Student
+        fields = ['full_name','image']

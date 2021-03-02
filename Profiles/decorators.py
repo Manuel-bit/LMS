@@ -10,7 +10,7 @@ def TutorRedirect(view_func):
         if group == 'Tutor':
             return redirect('tutorProfile')
 
-        if group == 'students':
+        if group == 'Student':
             return view_func(request, *args, **kwargs)
 
     return wrapper_function

@@ -10,4 +10,5 @@ urlpatterns = [
     url(r'^log_out/$', views.logoutUser, name="logout"),
     url(r'^student_profile/$', views.StudentProfile, name="studentProfile"),
     url(r'^tutor_profile/$', views.TutoProfile, name="tutorProfile"),
+    url(r'^student_update/$', views.StudentUpdate, name="studentUpdate"),
 ]
