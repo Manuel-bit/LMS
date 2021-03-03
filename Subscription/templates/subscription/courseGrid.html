@@ -1,0 +1,96 @@
+{% extends 'subscription/base.html' %}
+{% block content %}
+    <div class="page-title section lb">
+        <div class="container">
+            <div class="clearfix">
+            <div class="title-area pull-left">
+                <h2>Course Grid <small>A basic standard course grid page.</small></h2>
+            </div><!-- /.pull-right -->
+            <div class="pull-right hidden-xs">
+                <div class="bread">
+                    <ol class="breadcrumb">
+                        <li><a href="#">Home</a></li>
+                        <li class="active">Courses</li>
+                    </ol>
+                </div><!-- end bread -->
+            </div><!-- /.pull-right -->
+            </div><!-- end clearfix -->
+        </div>
+    </div>
+    <div class="section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="shoptop clearfix">
+                        <div class="pull-left hidden-xs">
+                            <p> Showing 1–9 of 12 results</p>
+                        </div><!-- end col -->
+
+                        <div class="pull-right">
+                            <select class="form-control">
+                                <option>Sort Descending</option>
+                                <option>Sort by multiplying</option>
+                                <option>Alphabetical order</option>
+                            </select>
+                        </div><!-- end col -->
+                    </div><!--- end shop-top -->
+                </div><!-- end col -->
+            </div>
+
+            <hr class="invis">
+
+            <div class="row course-list">
+                {% for item in course %}
+                    <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12 wow fadeIn">
+                        <div class="video-wrapper course-widget clearfix">
+                            <div class="post-media">
+                                <div class="entry">
+                                    <img src="{{ item.thumbnail.url }}" alt="" class="img-responsive">
+                                    <div class="magnifier">
+                                        <div class="magni-desc">
+                                            <a class="secondicon" href="#"> <span class="oi" data-glyph="link-intact" title="Read More" aria-hidden="false"></span></a>
+                                        </div><!-- end team-desc -->
+                                    </div><!-- end magnifier -->
+                                </div>
+                            </div><!-- end media -->
+
+                            <div class="widget-title clearfix">
+                                <h3><a href="{% url 'courseSingle' item.id %}">{{ item.course_title }}</a></h3>
+                                <hr>
+                                <div class="bottom-line clearfix">
+                                    <div class="pull-left">
+                                        <a href="#" class="readmore"><img src="upload/testi_01.png" class="img-circle" alt="">Michael Denson</a>
+                                    </div>
+
+                                    <div class="pull-right">
+                                        {% if item.premium %}
+                                            <a href="#" class="btn btn-sm btn-inverse">Premium</a>
+                                        {% else %}
+                                        <a href="#" class="btn btn-sm btn-inverse">Free</a>
+                                        {% endif %}
+                                    </div>
+                                </div><!-- end bottom -->
+                            </div><!-- end title -->
+
+                            <div class="course-meta clearfix">
+                                <div class="pull-left">
+                                    <p><i class="fa fa-users"></i> 21</p>
+                                </div>
+                                <div class="pull-right">
+                                    <div class="rating">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                    </div>
+                                </div>
+                            </div><!-- end meta -->
+                        </div><!--widget -->
+                    </div>
+                {% endfor %}
+            </div>
+
+        </div>
+    </div>
+{% endblock %}

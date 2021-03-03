@@ -4,13 +4,14 @@ from django.contrib.auth.models import User
 # Create your models here.
 
 class Course(models.Model):
-    course_name = models.CharField(max_length=200)
-    course_id = models.CharField(max_length=20)
+    course_title = models.CharField(max_length=255, null=True)
+    course_description = models.CharField(max_length=255, null=True)
+    thumbnail = models.ImageField(upload_to='course_thumbnails', null=True)
     premium = models.BooleanField(default=True)
 
     
     def __str__(self):
-        return self.course_name
+        return self.course_title
 
 class Customer(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)

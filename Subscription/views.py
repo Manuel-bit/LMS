@@ -1,7 +1,7 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 import stripe
-from .models import Customer 
+from .models import Customer, Course
 
 # Create your views here.
 
@@ -40,7 +40,7 @@ def checkout(request):
         customer.cancel_at_period_end = False
         customer.stripe_subscription_id = subscription.id
         customer.save()
-        
+
         return redirect('home')
     else:
         plan = "monthly"
@@ -65,3 +65,22 @@ def checkout(request):
                 final_dollar = str(price)[:-2] + '.' + str(price)[-2:]
         return render(request, 'subscription/checkout.html', {'plan':plan, 'coupon':coupon, 'price':price,
          'og_dollar':og_dollar, 'coupon_dollar':coupon_dollar, 'final_dollar':final_dollar})
+
+
+def courses(request):
+    course = Course.objects.all()
+    context = {'course':course}
+    return render(request, 'subscription/courseGrid.html', context)
+
+def courseSingle(request,pk):
+    course_single = get_object_or_404(Course, pk=pk)
+    if course_single.premium :
+        if request.user.is_authenticated:
+            try:
+                if request.user.customer.membership:
+                    return render(request, 'subscription/courseSingle.html',{'course_single':course_single})
+            except Customer.DoesNotExist:
+                    return redirect('subscriptionPlan')
+        return redirect('login')
+    else:
+        return render(request, 'subscription/courseSingle.html',{'course_single':course_single})
