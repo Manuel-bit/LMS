@@ -4,7 +4,7 @@
         <div class="container">
             <div class="clearfix">
             <div class="title-area pull-left">
-                <h2>Single Course <small>A basic single course page with sidebar.</small></h2>
+                <h2>{{course_single.course_title}} <small>A basic single course page with sidebar.</small></h2>
             </div><!-- /.pull-right -->
             <div class="pull-right hidden-xs">
                 <div class="bread">
@@ -24,7 +24,7 @@
                     <div class="widget clearfix">
                         <div class="post-media">
                             <div class="entry">
-                                <img src="upload/course_01.png" alt="" class="img-responsive">
+                                <img src="{{course_single.thumbnail.url}}" alt="" class="img-responsive">
                             </div>
                         </div><!-- end media -->
                         <hr>
@@ -61,7 +61,7 @@
                                 <div class="video-wrapper clearfix">
                                     <div class="post-media">
                                         <div class="entry">
-                                            <img src="upload/blog_06.jpg" alt="" class="img-responsive">
+                                            <img src="../static/upload/blog_06.jpg" alt="" class="img-responsive">
                                             <div class="magnifier">
                                                 <div class="magni-desc">
                                                     <a class="secondicon" href="course-single.html"> <span class="oi" data-glyph="link-intact" title="Read More" aria-hidden="false"></span></a>

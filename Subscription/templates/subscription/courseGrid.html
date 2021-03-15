@@ -40,12 +40,12 @@
             <hr class="invis">
 
             <div class="row course-list">
-                {% for item in course %}
+                {% for course_item in courses.all %}
                     <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12 wow fadeIn">
                         <div class="video-wrapper course-widget clearfix">
                             <div class="post-media">
                                 <div class="entry">
-                                    <img src="{{ item.thumbnail.url }}" alt="" class="img-responsive">
+                                    <img src="{{ course_item.thumbnail.url }}" alt="" class="img-responsive">
                                     <div class="magnifier">
                                         <div class="magni-desc">
                                             <a class="secondicon" href="#"> <span class="oi" data-glyph="link-intact" title="Read More" aria-hidden="false"></span></a>
@@ -55,7 +55,7 @@
                             </div><!-- end media -->
 
                             <div class="widget-title clearfix">
-                                <h3><a href="{% url 'courseSingle' item.id %}">{{ item.course_title }}</a></h3>
+                                <h3><a href="{% url 'courseSingle' course_item.id %}">{{ course_item.course_title }}</a></h3>
                                 <hr>
                                 <div class="bottom-line clearfix">
                                     <div class="pull-left">
@@ -63,7 +63,7 @@
                                     </div>
 
                                     <div class="pull-right">
-                                        {% if item.premium %}
+                                        {% if course_item.premium %}
                                             <a href="#" class="btn btn-sm btn-inverse">Premium</a>
                                         {% else %}
                                         <a href="#" class="btn btn-sm btn-inverse">Free</a>

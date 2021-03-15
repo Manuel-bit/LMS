@@ -41,7 +41,7 @@ def checkout(request):
         customer.stripe_subscription_id = subscription.id
         customer.save()
 
-        return redirect('home')
+        return redirect('courses')
     else:
         plan = "monthly"
         coupon = 'none'
@@ -68,9 +68,8 @@ def checkout(request):
 
 
 def courses(request):
-    course = Course.objects.all()
-    context = {'course':course}
-    return render(request, 'subscription/courseGrid.html', context)
+    courses = Course.objects
+    return render(request, 'subscription/courseGrid.html',{'courses':courses})
 
 def courseSingle(request,pk):
     course_single = get_object_or_404(Course, pk=pk)
